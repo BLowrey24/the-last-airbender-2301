@@ -1,4 +1,12 @@
+<h3> Total Members: <%= @all_nation_members %> </h3>
+<br>
 <% @characters.each do |character| %>
-  <%= character[:name] %>
+  <h3><%= character[:name] %></h3>
+  <% if character[:photoUrl] %>
+    <img src="<%= character[:photoUrl] %>">
+  <% end %>
+  <p> Allies: <%= character[:allies].any? ? character[:allies].join(', ') : 'None' %></p>
+  <p> Enemies: <%= character[:enemies].any? ? character[:enemies].join(', ') : 'None' %></p>
+  <p> Affiliation(s): <%= character[:affiliation] %></p>
   <br>
 <% end %>
